@@ -21,7 +21,7 @@ resource "aws_launch_template" "main" {
       { Name = "${var.component}-${var.env}", Monitor = "yes" }
     )
   }
-}
+
 
 /*  user_data = base64encode(templatefile("${path.module}/userdata.sh", {
     component = var.component
@@ -131,6 +131,6 @@ resource "aws_lb_listener_rule" "listener_rule" {
     host_header {
       values = [local.dns_name]
     }
-  }
-}*/
+  }*/
+}
 

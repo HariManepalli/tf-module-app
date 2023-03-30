@@ -2,7 +2,7 @@ variable "env" {}
 variable "tags" {}
 variable "component" {}
 variable "instance_type" {}
-variable "desired_capacity" {}
+/*variable "desired_capacity" {}
 variable "min_size" {}
 variable "max_size" {}
 variable "subnets" {}
@@ -15,5 +15,5 @@ variable "alb_dns_name" {}
 variable "listener_arn" {}
 variable "listener_priority" {}
 variable "parameters" {}
-variable "monitoring_nodes" {}
+variable "monitoring_nodes" {}*/
 
