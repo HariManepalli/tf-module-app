@@ -14,6 +14,6 @@ variable "port" {}
 variable "alb_dns_name" {}
 variable "listener_arn" {}
 variable "listener_priority" {}
-variable "parameters" {}*/
-variable "monitoring_nodes" {}
+variable "parameters" {}*//*
+variable "monitoring_nodes" {}*/
 
