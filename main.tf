@@ -48,8 +48,6 @@ user_data = base64encode(templatefile("${path.module}/userdata.sh", {
 }))
 
 
-
-
 resource "aws_security_group" "main" {
   name        = "${var.component}-${var.env}"
   description = "${var.component}-${var.env}"
