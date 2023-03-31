@@ -10,8 +10,8 @@ resource "aws_launch_template" "main" {
     market_type = "spot"
   }
 
-  instance_type = var.instance_type
-    vpc_security_group_ids = [aws_security_group.main.id]
+  instance_type          = var.instance_type
+  vpc_security_group_ids = [aws_security_group.main.id]
 
   tag_specifications {
     resource_type = "instance"
@@ -21,6 +21,11 @@ resource "aws_launch_template" "main" {
       { Name = "${var.component}-${var.env}" }
     )
   }
+
+  user_data = base64encode(templatefile("${path.module}/userdata.sh", {
+    component = var.component
+    env       = var.env
+  }))
 }
 
 resource "aws_autoscaling_group" "main" {
@@ -41,12 +46,6 @@ resource "aws_autoscaling_group" "main" {
       value               = "${var.component}-${var.env}"
     }
   }
-
-user_data = base64encode(templatefile("${path.module}/userdata.sh", {
-  component = var.component
-  env       = var.env
-}))
-
 
 resource "aws_security_group" "main" {
   name        = "${var.component}-${var.env}"
