@@ -11,7 +11,7 @@ resource "aws_launch_template" "main" {
   }
 
   instance_type = var.instance_type
-  /*  vpc_security_group_ids = [aws_security_group.main.id]*/
+    vpc_security_group_ids = [aws_security_group.main.id]
 
   tag_specifications {
     resource_type = "instance"
@@ -42,14 +42,14 @@ resource "aws_autoscaling_group" "main" {
     }
   }
 
-  /*  user_data = base64encode(templatefile("${path.module}/userdata.sh", {
+    user_data = base64encode(templatefile("${path.module}/userdata.sh",
+      {
     component = var.component
     env       = var.env
   }))
-}*/
 
 
-  /*
+
 resource "aws_security_group" "main" {
   name        = "${var.component}-${var.env}"
   description = "${var.component}-${var.env}"
@@ -63,7 +63,7 @@ resource "aws_security_group" "main" {
     cidr_blocks = var.bastion_cidr
   }
 
-  ingress {
+  /*ingress {
     description = "APP"
     from_port   = var.port
     to_port     = var.port
@@ -77,7 +77,7 @@ resource "aws_security_group" "main" {
     to_port     = 9100
     protocol    = "tcp"
     cidr_blocks = var.monitoring_nodes
-  }
+  }*/
 
   egress {
     from_port        = 0
@@ -93,7 +93,7 @@ resource "aws_security_group" "main" {
   )
 }
 
-resource "aws_lb_target_group" "main" {
+/*resource "aws_lb_target_group" "main" {
   name     = "${var.component}-${var.env}"
   port     = var.port
   protocol = "HTTP"
