@@ -131,5 +131,3 @@ resource "aws_lb_listener_rule" "listener_rule" {
       values = [local.dns_name]
     }
   }*/
-
-

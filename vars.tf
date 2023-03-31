@@ -8,7 +8,7 @@ variable "max_size" {}
 variable "subnets" {}
 variable "vpc_id" {}
 variable "bastion_cidr" {}
-variable "parameters" {}
+/*variable "parameters" {}*/
 /*variable "allow_app_to" {}
 variable "port" {}
 variable "dns_domain" {}
