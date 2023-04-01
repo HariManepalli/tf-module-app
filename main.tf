@@ -60,7 +60,7 @@ resource "aws_security_group" "main" {
     cidr_blocks = var.bastion_cidr
   }
 
-  /*ingress {
+  ingress {
     description = "APP"
     from_port   = var.port
     to_port     = var.port
@@ -68,7 +68,7 @@ resource "aws_security_group" "main" {
     cidr_blocks = var.allow_app_to
   }
 
-  ingress {
+/*  ingress {
     description = "PROMETHEUS"
     from_port   = 9100
     to_port     = 9100
