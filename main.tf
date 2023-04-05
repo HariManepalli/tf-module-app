@@ -109,14 +109,14 @@ resource "aws_lb_target_group" "main" {
   )
 }
 
-/*
 resource "aws_route53_record" "main" {
   zone_id = data.aws_route53_zone.domain.zone_id
-  name    = local.dns_name
+  name    = "${var.component}-${var.env}-${var.dns_domain}"
   type    = "CNAME"
   ttl     = 30
   records = [var.alb_dns_name]
 }
+/*
 
 resource "aws_lb_listener_rule" "listener_rule" {
   listener_arn = var.listener_arn
@@ -131,4 +131,5 @@ resource "aws_lb_listener_rule" "listener_rule" {
     host_header {
       values = [local.dns_name]
     }
-  }*/
+  }
+*/
