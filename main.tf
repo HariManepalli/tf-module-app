@@ -86,7 +86,7 @@ resource "aws_security_group" "main" {
 
   tags = merge(
     var.tags,
-    { Name = "${var.component}-${var.env}" }
+    { Name = "${var.component}-${var.env}" , Monitor = "yes" }
   )
 }
 
